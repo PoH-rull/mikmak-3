@@ -1,5 +1,5 @@
 import csv
-from collections import Counter
+from collections import Counter,defaultdict
 def parse(text):
     """
     This function parses text that is a list of strings "['str1','str2']" into the python list containing the strings 'str1' and 'str2'
@@ -27,3 +27,8 @@ for row in anime[1:]:
 # print(genres[:10])
 # print(set(sum(genres,[])))
 print(Counter(sum(genres,[])))
+genres_map=defaultdict(list)
+for row in anime[1:]:
+    for genre in parse(row[3]):
+        genres_map[genre].append(row[1])
+print(genres_map['Yaoi'])
