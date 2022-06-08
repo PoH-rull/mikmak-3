@@ -20,15 +20,15 @@ with open('myanimelist.csv', newline='', encoding='utf-8') as csvfile:
 
 # print(anime[0])
 # print(anime[1][2])
-
+Genre=str(input('Enter a anime genre you would like to search for (start with a capital letter) '))
 genres = []
 for row in anime[1:]:
     genres.append (parse(row[3]))
-# print(genres[:10])
+# print(genres[:10])Harem
 # print(set(sum(genres,[])))
 print(Counter(sum(genres,[])))
 genres_map=defaultdict(list)
 for row in anime[1:]:
     for genre in parse(row[3]):
         genres_map[genre].append(row[1])
-print(genres_map['Yaoi'])
+print(genres_map[Genre])
