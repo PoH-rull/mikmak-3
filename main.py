@@ -1,10 +1,10 @@
 import csv
-
+from collections import Counter
 def parse(text):
     """
     This function parses text that is a list of strings "['str1','str2']" into the python list containing the strings 'str1' and 'str2'
     """
-    if text.startswith("['") and text.endswith("']"):
+    if text.startswith("[") and text.endswith("]"):
         return eval(text)
     else:
         print("Error reading text: ", text)
@@ -18,9 +18,12 @@ with open('myanimelist.csv', newline='', encoding='utf-8') as csvfile:
         anime.append(row)
         
 
-print(anime[0])
-print(anime[1][2])
+# print(anime[0])
+# print(anime[1][2])
 
-genres = parse(anime[1][3])
-print(genres[0])
-print(genres[1])
+genres = []
+for row in anime[1:]:
+    genres.append (parse(row[3]))
+# print(genres[:10])
+# print(set(sum(genres,[])))
+print(Counter(sum(genres,[])))
