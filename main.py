@@ -33,3 +33,4 @@ for row in anime[1:]:
         genres_map[genre].append(row[1])
 print(genres_map[Genre])
 # LOLL
+# LOL2
